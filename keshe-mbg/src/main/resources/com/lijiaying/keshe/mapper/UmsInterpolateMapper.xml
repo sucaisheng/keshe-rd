@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingmeng.qiuzhidi.mapper.UmsInterpolateMapper">
+  <resultMap id="BaseResultMap" type="com.qingmeng.qiuzhidi.model.UmsInterpolate">
+    <id column="interpolate_id" jdbcType="BIGINT" property="interpolateId" />
+    <result column="companies" jdbcType="VARCHAR" property="companies" />
+    <result column="salary" jdbcType="REAL" property="salary" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="describes" jdbcType="VARCHAR" property="describes" />
+    <result column="interpolate_state" jdbcType="BIGINT" property="interpolateState" />
+    <result column="push_ipl_people" jdbcType="BIGINT" property="pushIplPeople" />
+    <result column="resume_state" jdbcType="BIGINT" property="resumeState" />
+    <result column="issue_time" jdbcType="TIMESTAMP" property="issueTime" />
+    <result column="response_number" jdbcType="INTEGER" property="responseNumber" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    interpolate_id, companies, salary, position, describes, interpolate_state, push_ipl_people, 
+    resume_state, issue_time, response_number
+  </sql>
+  <select id="selectByExample" parameterType="com.qingmeng.qiuzhidi.model.UmsInterpolateExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ums_interpolate
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ums_interpolate
+    where interpolate_id = #{interpolateId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from ums_interpolate
+    where interpolate_id = #{interpolateId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qingmeng.qiuzhidi.model.UmsInterpolateExample">
+    delete from ums_interpolate
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qingmeng.qiuzhidi.model.UmsInterpolate">
+    insert into ums_interpolate (interpolate_id, companies, salary, 
+      position, describes, interpolate_state, 
+      push_ipl_people, resume_state, issue_time, 
+      response_number)
+    values (#{interpolateId,jdbcType=BIGINT}, #{companies,jdbcType=VARCHAR}, #{salary,jdbcType=REAL}, 
+      #{position,jdbcType=VARCHAR}, #{describes,jdbcType=VARCHAR}, #{interpolateState,jdbcType=BIGINT}, 
+      #{pushIplPeople,jdbcType=BIGINT}, #{resumeState,jdbcType=BIGINT}, #{issueTime,jdbcType=TIMESTAMP}, 
+      #{responseNumber,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qingmeng.qiuzhidi.model.UmsInterpolate">
+    insert into ums_interpolate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="interpolateId != null">
+        interpolate_id,
+      </if>
+      <if test="companies != null">
+        companies,
+      </if>
+      <if test="salary != null">
+        salary,
+      </if>
+      <if test="position != null">
+        position,
+      </if>
+      <if test="describes != null">
+        describes,
+      </if>
+      <if test="interpolateState != null">
+        interpolate_state,
+      </if>
+      <if test="pushIplPeople != null">
+        push_ipl_people,
+      </if>
+      <if test="resumeState != null">
+        resume_state,
+      </if>
+      <if test="issueTime != null">
+        issue_time,
+      </if>
+      <if test="responseNumber != null">
+        response_number,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="interpolateId != null">
+        #{interpolateId,jdbcType=BIGINT},
+      </if>
+      <if test="companies != null">
+        #{companies,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=REAL},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="describes != null">
+        #{describes,jdbcType=VARCHAR},
+      </if>
+      <if test="interpolateState != null">
+        #{interpolateState,jdbcType=BIGINT},
+      </if>
+      <if test="pushIplPeople != null">
+        #{pushIplPeople,jdbcType=BIGINT},
+      </if>
+      <if test="resumeState != null">
+        #{resumeState,jdbcType=BIGINT},
+      </if>
+      <if test="issueTime != null">
+        #{issueTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="responseNumber != null">
+        #{responseNumber,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qingmeng.qiuzhidi.model.UmsInterpolateExample" resultType="java.lang.Long">
+    select count(*) from ums_interpolate
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ums_interpolate
+    <set>
+      <if test="record.interpolateId != null">
+        interpolate_id = #{record.interpolateId,jdbcType=BIGINT},
+      </if>
+      <if test="record.companies != null">
+        companies = #{record.companies,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salary != null">
+        salary = #{record.salary,jdbcType=REAL},
+      </if>
+      <if test="record.position != null">
+        position = #{record.position,jdbcType=VARCHAR},
+      </if>
+      <if test="record.describes != null">
+        describes = #{record.describes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interpolateState != null">
+        interpolate_state = #{record.interpolateState,jdbcType=BIGINT},
+      </if>
+      <if test="record.pushIplPeople != null">
+        push_ipl_people = #{record.pushIplPeople,jdbcType=BIGINT},
+      </if>
+      <if test="record.resumeState != null">
+        resume_state = #{record.resumeState,jdbcType=BIGINT},
+      </if>
+      <if test="record.issueTime != null">
+        issue_time = #{record.issueTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.responseNumber != null">
+        response_number = #{record.responseNumber,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ums_interpolate
+    set interpolate_id = #{record.interpolateId,jdbcType=BIGINT},
+      companies = #{record.companies,jdbcType=VARCHAR},
+      salary = #{record.salary,jdbcType=REAL},
+      position = #{record.position,jdbcType=VARCHAR},
+      describes = #{record.describes,jdbcType=VARCHAR},
+      interpolate_state = #{record.interpolateState,jdbcType=BIGINT},
+      push_ipl_people = #{record.pushIplPeople,jdbcType=BIGINT},
+      resume_state = #{record.resumeState,jdbcType=BIGINT},
+      issue_time = #{record.issueTime,jdbcType=TIMESTAMP},
+      response_number = #{record.responseNumber,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qingmeng.qiuzhidi.model.UmsInterpolate">
+    update ums_interpolate
+    <set>
+      <if test="companies != null">
+        companies = #{companies,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=REAL},
+      </if>
+      <if test="position != null">
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="describes != null">
+        describes = #{describes,jdbcType=VARCHAR},
+      </if>
+      <if test="interpolateState != null">
+        interpolate_state = #{interpolateState,jdbcType=BIGINT},
+      </if>
+      <if test="pushIplPeople != null">
+        push_ipl_people = #{pushIplPeople,jdbcType=BIGINT},
+      </if>
+      <if test="resumeState != null">
+        resume_state = #{resumeState,jdbcType=BIGINT},
+      </if>
+      <if test="issueTime != null">
+        issue_time = #{issueTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="responseNumber != null">
+        response_number = #{responseNumber,jdbcType=INTEGER},
+      </if>
+    </set>
+    where interpolate_id = #{interpolateId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qingmeng.qiuzhidi.model.UmsInterpolate">
+    update ums_interpolate
+    set companies = #{companies,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=REAL},
+      position = #{position,jdbcType=VARCHAR},
+      describes = #{describes,jdbcType=VARCHAR},
+      interpolate_state = #{interpolateState,jdbcType=BIGINT},
+      push_ipl_people = #{pushIplPeople,jdbcType=BIGINT},
+      resume_state = #{resumeState,jdbcType=BIGINT},
+      issue_time = #{issueTime,jdbcType=TIMESTAMP},
+      response_number = #{responseNumber,jdbcType=INTEGER}
+    where interpolate_id = #{interpolateId,jdbcType=BIGINT}
+  </update>
+</mapper>

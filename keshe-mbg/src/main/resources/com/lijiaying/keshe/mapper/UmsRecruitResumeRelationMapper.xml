@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingmeng.qiuzhidi.mapper.UmsRecruitResumeRelationMapper">
+  <resultMap id="BaseResultMap" type="com.qingmeng.qiuzhidi.model.UmsRecruitResumeRelation">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="recruit_id" jdbcType="BIGINT" property="recruitId" />
+    <result column="resume_id" jdbcType="BIGINT" property="resumeId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, recruit_id, resume_id, type
+  </sql>
+  <select id="selectByExample" parameterType="com.qingmeng.qiuzhidi.model.UmsRecruitResumeRelationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ums_recruit_resume_relation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from ums_recruit_resume_relation
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from ums_recruit_resume_relation
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.qingmeng.qiuzhidi.model.UmsRecruitResumeRelationExample">
+    delete from ums_recruit_resume_relation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.qingmeng.qiuzhidi.model.UmsRecruitResumeRelation">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into ums_recruit_resume_relation (recruit_id, resume_id, type
+      )
+    values (#{recruitId,jdbcType=BIGINT}, #{resumeId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qingmeng.qiuzhidi.model.UmsRecruitResumeRelation">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into ums_recruit_resume_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recruitId != null">
+        recruit_id,
+      </if>
+      <if test="resumeId != null">
+        resume_id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recruitId != null">
+        #{recruitId,jdbcType=BIGINT},
+      </if>
+      <if test="resumeId != null">
+        #{resumeId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.qingmeng.qiuzhidi.model.UmsRecruitResumeRelationExample" resultType="java.lang.Long">
+    select count(*) from ums_recruit_resume_relation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update ums_recruit_resume_relation
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.recruitId != null">
+        recruit_id = #{record.recruitId,jdbcType=BIGINT},
+      </if>
+      <if test="record.resumeId != null">
+        resume_id = #{record.resumeId,jdbcType=BIGINT},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update ums_recruit_resume_relation
+    set id = #{record.id,jdbcType=BIGINT},
+      recruit_id = #{record.recruitId,jdbcType=BIGINT},
+      resume_id = #{record.resumeId,jdbcType=BIGINT},
+      type = #{record.type,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qingmeng.qiuzhidi.model.UmsRecruitResumeRelation">
+    update ums_recruit_resume_relation
+    <set>
+      <if test="recruitId != null">
+        recruit_id = #{recruitId,jdbcType=BIGINT},
+      </if>
+      <if test="resumeId != null">
+        resume_id = #{resumeId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qingmeng.qiuzhidi.model.UmsRecruitResumeRelation">
+    update ums_recruit_resume_relation
+    set recruit_id = #{recruitId,jdbcType=BIGINT},
+      resume_id = #{resumeId,jdbcType=BIGINT},
+      type = #{type,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="getTypeByRecruitIdAndResumeId" resultType="Integer">
+      select type from ums_recruit_resume_relation where recruit_id = #{recruitId} and resume_id = #{resumeId}
+  </select>
+</mapper>
