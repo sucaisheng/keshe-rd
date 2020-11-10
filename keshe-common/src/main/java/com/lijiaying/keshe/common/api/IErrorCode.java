@@ -1,4 +1,4 @@
-package com.qingmeng.qiuzhidi.common.api;
+package com.lijiaying.keshe.common.api;
 
 /**
  * 封装API的错误码

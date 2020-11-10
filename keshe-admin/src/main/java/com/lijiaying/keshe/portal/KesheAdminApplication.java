@@ -1,4 +1,4 @@
-package src.main.java.com.lijiaying.keshe.portal;
+package com.lijiaying.keshe.portal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

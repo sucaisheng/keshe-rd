@@ -1,4 +1,4 @@
-package src.main.java.com.lijiaying.keshe.portal.util;
+package com.lijiaying.keshe.portal.util;
 
 import java.util.Calendar;
 import java.util.Date;

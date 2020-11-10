@@ -1,4 +1,4 @@
-package com.qingmeng.qiuzhidi.common.utils;
+package com.lijiaying.keshe.common.utils;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.RandomUtil;

@@ -1,6 +1,6 @@
-package com.qingmeng.qiuzhidi.common.exception;
+package com.lijiaying.keshe.common.exception;
 
-import com.qingmeng.qiuzhidi.common.api.IErrorCode;
+import com.lijiaying.keshe.common.api.IErrorCode;
 
 /**
  * 断言处理类，用于抛出各种API异常

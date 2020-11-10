@@ -1,4 +1,4 @@
-package com.qingmeng.qiuzhidi.common.api;
+package com.lijiaying.keshe.common.api;
 
 /**
  * 枚举了一些常用API操作码

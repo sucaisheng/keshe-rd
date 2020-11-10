@@ -1,4 +1,4 @@
-package com.qingmeng.qiuzhidi.search.config;
+package com.lijiaying.keshe.search.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package src.main.java.com.lijiaying.keshe.portal.config;
+package com.lijiaying.keshe.portal.config;
 //微信Md5加密工具
 
 import java.security.MessageDigest;

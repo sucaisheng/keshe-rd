@@ -1,4 +1,4 @@
-package com.qingmeng.qiuzhidi;
+package com.lijiaying.keshe;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;

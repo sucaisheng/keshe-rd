@@ -1,6 +1,6 @@
-package com.qingmeng.qiuzhidi.common.exception;
+package com.lijiaying.keshe.common.exception;
 
-import com.qingmeng.qiuzhidi.common.api.CommonResult;
+import com.lijiaying.keshe.common.api.CommonResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

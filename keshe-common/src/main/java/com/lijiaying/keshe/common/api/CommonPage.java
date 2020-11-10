@@ -1,4 +1,4 @@
-package com.qingmeng.qiuzhidi.common.api;
+package com.lijiaying.keshe.common.api;
 
 import com.github.pagehelper.PageInfo;
 import org.springframework.data.domain.Page;

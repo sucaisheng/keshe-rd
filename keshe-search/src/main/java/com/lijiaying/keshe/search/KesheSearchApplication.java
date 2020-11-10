@@ -1,4 +1,4 @@
-package com.qingmeng.qiuzhidi.search;
+package com.lijiaying.keshe.search;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

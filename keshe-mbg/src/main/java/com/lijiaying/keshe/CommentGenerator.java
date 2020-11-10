@@ -1,4 +1,4 @@
-package com.qingmeng.qiuzhidi;
+package com.lijiaying.keshe;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;

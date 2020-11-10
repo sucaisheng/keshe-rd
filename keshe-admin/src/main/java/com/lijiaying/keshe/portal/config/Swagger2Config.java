@@ -1,4 +1,4 @@
-package src.main.java.com.lijiaying.keshe.portal.config;
+package com.lijiaying.keshe.portal.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

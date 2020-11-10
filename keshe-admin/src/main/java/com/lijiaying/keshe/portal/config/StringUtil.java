@@ -1,4 +1,4 @@
-package src.main.java.com.lijiaying.keshe.portal.config;
+package com.lijiaying.keshe.portal.config;
 //微信返回的结果为Xml格式的字符串，XmlUtil主要用于解析结果
 
 import java.util.Map;
