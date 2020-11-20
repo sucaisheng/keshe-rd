@@ -7,15 +7,26 @@ import java.util.Date;
 public class TbUser implements Serializable {
     private Integer id;
 
+    @ApiModelProperty(value = "用户名称")
     private String username;
 
+    @ApiModelProperty(value = "密码")
     private String password;
 
+    @ApiModelProperty(value = "邮箱")
     private String email;
 
+    @ApiModelProperty(value = "生日")
     private Date birthidy;
 
+    @ApiModelProperty(value = "电话号码")
     private String telephone;
+
+    @ApiModelProperty(value = "性别")
+    private String sex;
+
+    @ApiModelProperty(value = "用户头像")
+    private String icon;
 
     private static final long serialVersionUID = 1L;
 
@@ -67,6 +78,22 @@ public class TbUser implements Serializable {
         this.telephone = telephone;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -79,6 +106,8 @@ public class TbUser implements Serializable {
         sb.append(", email=").append(email);
         sb.append(", birthidy=").append(birthidy);
         sb.append(", telephone=").append(telephone);
+        sb.append(", sex=").append(sex);
+        sb.append(", icon=").append(icon);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

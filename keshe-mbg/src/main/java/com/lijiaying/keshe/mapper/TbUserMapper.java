@@ -2,9 +2,8 @@ package com.lijiaying.keshe.mapper;
 
 import com.lijiaying.keshe.model.TbUser;
 import com.lijiaying.keshe.model.TbUserExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface TbUserMapper {
     long countByExample(TbUserExample example);
