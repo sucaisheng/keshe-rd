@@ -13,7 +13,14 @@ public interface UserService {
      * @param telephone
      * @param sex
      * @param birthday
-     * @param code
+     * @return
      */
-    void register(String username, String password, String email, String name, String telephone, String sex, Date birthday, String code);
+    int register(String username, String password, String email, String name, String telephone, String sex, Date birthday);
+
+    /**
+     * 激活用户
+     * @param code
+     * @return
+     */
+    Boolean active(String code);
 }

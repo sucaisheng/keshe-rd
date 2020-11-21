@@ -6,16 +6,9 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.ApiKey;
-import springfox.documentation.service.AuthorizationScope;
-import springfox.documentation.service.SecurityReference;
 import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Swagger2API文档的配置
@@ -29,53 +22,18 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)  //指定api类型
                 .apiInfo(apiInfo())  //用于定义api文档汇总信息
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.qingmeng.qiuzhidi.portal.controller")) //指定controller包
+                .apis(RequestHandlerSelectors.basePackage("com.lijiaying.keshe.portal.controller")) //指定controller包
                 .paths(PathSelectors.any())  //所有controller
-                .build()
-                .securitySchemes(securitySchemes())
-                .securityContexts(securityContexts());
+                .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("qiuzhidi前台系统")
-                .description("qiuzhidi前台模块")
-                .contact("qingmeng") //联系人信息
+                .title("keshe前台系统")
+                .description("keshe前台模块")
+                .contact("lijiaying") //联系人信息
                 .version("1.0")
                 .build();
     }
 
-    private List<ApiKey> securitySchemes() {
-        //设置请求头信息
-        List<ApiKey> result = new ArrayList<>();
-        ApiKey apiKey = new ApiKey("Authorization", "Authorization", "header");
-        result.add(apiKey);
-        return result;
-    }
-
-    private List<SecurityContext> securityContexts() {
-        //设置需要登录认证的路径
-        List<SecurityContext> result = new ArrayList<>();
-        result.add(getContextByPath("/member/.*"));
-        result.add(getContextByPath("/cart/.*"));
-        result.add(getContextByPath("/order/.*"));
-        result.add(getContextByPath("/returnApply/.*"));
-        return result;
-    }
-
-    private SecurityContext getContextByPath(String pathRegex) {
-        return SecurityContext.builder()
-                .securityReferences(defaultAuth())
-                .forPaths(PathSelectors.regex(pathRegex))
-                .build();
-    }
-
-    private List<SecurityReference> defaultAuth() {
-        List<SecurityReference> result = new ArrayList<>();
-        AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
-        AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
-        authorizationScopes[0] = authorizationScope;
-        result.add(new SecurityReference("Authorization", authorizationScopes));
-        return result;
-    }
 }

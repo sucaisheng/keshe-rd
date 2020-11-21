@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 @EnableAsync
 @SpringBootApplication(scanBasePackages = "com.lijiaying.keshe")
-public class KesheAdminApplication {
+public class  KesheAdminApplication {
     public static void main(String[] args) {
         SpringApplication.run(KesheAdminApplication.class, args);
     }

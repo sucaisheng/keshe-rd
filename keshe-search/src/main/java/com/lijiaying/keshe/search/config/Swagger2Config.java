@@ -22,16 +22,16 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.qingmeng.qiuzhidi.search.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.lijiaying.keshe.search.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("qiuzhidi搜索系统")
-                .description("qiuzhidi搜索模块")
-                .contact("qiuzhidi")
+                .title("keshe搜索系统")
+                .description("keshe搜索模块")
+                .contact("keshe")
                 .version("1.0")
                 .build();
     }
